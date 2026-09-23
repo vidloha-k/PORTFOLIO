@@ -17,43 +17,90 @@
       .mono { font-family: "DM Mono", monospace; }
       .green { background: #002b2a; }
       .cream { background: #f5f2e9; }
+      .graphic-card, .photo-card { min-width: 0; }
+      .graphic-card { display: flex; flex-direction: column; height: 100%; }
+      .graphic-card .media-frame, .photo-card .media-frame {
+        display: flex;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: #e8e4d8;
+      }
       .graphic-card img, .photo-card img {
         display: block;
         width: 100%;
-        height: auto;
+        height: 100%;
         object-fit: contain;
-        background: #e8e4d8;
         transition: transform 0.5s ease, filter 0.5s ease;
-        transform: scale(1.02);
       }
+      .photo-card img { object-fit: cover; }
+      .graphic-card .card-copy { display: flex; flex: 1; flex-direction: column; }
+      .graphic-card .card-copy p { max-width: 34rem; }
       .graphic-card:hover img, .photo-card:hover img { transform: scale(1.04); filter: grayscale(0); }
+      @media (max-width: 767px) {
+        .graphic-card .media-frame, .photo-card .media-frame { aspect-ratio: 4 / 3; }
+      }
     </style>
   </head>
   <body class="cream">
     <header class="sticky top-0 z-50 border-b border-[#002b2a] bg-[#f5f2e9] px-5 py-4 md:px-10">
-      <div class="mx-auto flex max-w-7xl items-center justify-between">
+      <div class="mx-auto flex max-w-7xl items-center justify-between gap-6">
         <a href="#home" class="mono text-xl font-bold">KATERYNA VIDLOHA</a>
         <nav class="flex gap-4 text-xs uppercase tracking-widest md:gap-7">
-          <a href="#about" class="hover:underline">About</a><a href="#graphics" class="hover:underline">Grafica</a><a href="#photos" class="hover:underline">Fotografia</a><a href="#contact" class="hover:underline">Contact</a>
+          <a href="#about" class="hover:underline">About</a>
+          <a href="#graphics" class="hover:underline">Grafica</a>
+          <a href="#photos" class="hover:underline">Fotografia</a>
+          <a href="#contact" class="hover:underline">Contatti</a>
         </nav>
       </div>
     </header>
     <main>
-      <section id="home" class="green min-h-screen px-5 py-16 text-white md:px-10 md:py-24"><div class="mx-auto flex min-h-[70vh] max-w-7xl flex-col justify-center"><h1 class="hero-title max-w-5xl text-6xl font-bold leading-[0.85] tracking-tight sm:text-8xl lg:text-9xl">Kateryna<br />Vidloha.</h1><p class="mt-8 max-w-sm text-lg leading-relaxed text-white/80">Graphic design, fotografia.</p><a href="#graphics" class="mt-10 w-fit border border-white px-5 py-3 text-sm hover:bg-white hover:text-[#002b2a]">Esplora i progetti ↓</a></div></section>
-      <section id="about" class="px-5 py-20 md:px-10 md:py-32"><div class="mx-auto grid max-w-7xl gap-12 md:grid-cols-[1fr_1.5fr]"><p class="text-2xl font-bold md:text-3xl">About me</p><div class="about-copy max-w-3xl"><h2 class="text-4xl font-bold leading-tight sm:text-6xl">Immagini, idee e dettagli quotidiani.</h2><div class="mt-10 grid gap-8 text-base leading-relaxed md:grid-cols-2"><p>Questo portfolio raccoglie progetti di grafica e fotografie realizzati durante il mio percorso di studio e personale.</p><p>Mi interessano il colore, le composizioni essenziali e le immagini che raccontano una piccola storia.</p></div></div></div></section>
-      <section id="graphics" class="border-y border-[#002b2a] bg-white px-5 py-20 md:px-10 md:py-32"><div class="mx-auto max-w-7xl"><div class="graphics-heading grid gap-8 md:grid-cols-2 md:items-end"><div><h2 class="text-5xl font-bold leading-none sm:text-7xl">Progetti<br />di grafica.</h2></div><p class="max-w-md leading-relaxed">Una raccolta di layout, poster, identità visive e sperimentazioni.</p></div><div id="graphics-grid" class="mt-12 grid grid-cols-1 gap-x-5 gap-y-12 md:grid-cols-2 lg:grid-cols-3"></div></div></section>
-      <section id="photos" class="px-5 py-20 md:px-10 md:py-32"><div class="mx-auto max-w-7xl"><div class="photos-heading grid gap-8 border-b border-[#002b2a] pb-12 md:grid-cols-2 md:items-end"><div><h2 class="text-5xl font-bold leading-none sm:text-7xl">Foto<br />e osservazioni.</h2></div><p class="max-w-md leading-relaxed">Queste fotografie sono state scattate in città diverse, durante passeggiate e viaggi. Cerco luci, luoghi e dettagli che mi sembrano interessanti anche in ambienti ordinari.</p></div><div id="photos-grid" class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2"></div></div></section>
-      <section id="contact" class="green px-5 py-20 text-white md:px-10 md:py-32"><div class="contact-content mx-auto max-w-7xl"><h2 class="text-5xl font-bold leading-none sm:text-8xl">Hai un progetto<br />in mente?</h2><div class="mt-10 flex flex-col items-start gap-4 text-xl"><a class="border-b border-white pb-2 hover:text-white/70" href="mailto:vidloha.k@gmail.com">vidloha.k@gmail.com ↗</a><a class="border-b border-white pb-2 hover:text-white/70" href="tel:+393202633157">+39 320 2633157</a></div><div class="mt-16 flex gap-6 text-sm"><a href="https://www.instagram.com/vdlkry/" target="_blank" rel="noreferrer" class="underline">Instagram @vdlkry ↗</a><a href="#home" class="underline">Torna su ↑</a></div></div></section>
+      <section id="home" class="green min-h-screen px-5 py-16 text-white md:px-10 md:py-24">
+        <div class="mx-auto flex min-h-[70vh] max-w-7xl flex-col justify-center">
+          <p class="mono mb-6 text-sm uppercase tracking-widest">Graphic designer · Photographer</p>
+          <h1 class="hero-title max-w-5xl text-6xl font-bold leading-[0.95] sm:text-8xl md:text-9xl">Immagini che raccontano storie.</h1>
+          <p class="mt-10 max-w-xl text-lg leading-relaxed text-white/75">Un portfolio di grafica, fotografia e ricerca visiva.</p>
+        </div>
+      </section>
+      <section id="about" class="px-5 py-20 md:px-10 md:py-32">
+        <div class="mx-auto grid max-w-7xl gap-12 md:grid-cols-[1fr_1.5fr]">
+          <p class="text-2xl font-bold md:text-3xl">About me</p>
+          <div class="about-copy text-xl leading-relaxed md:text-2xl">Sono Kateryna, una graphic designer e fotografa interessata alle immagini capaci di creare connessioni, atmosfere e memoria. Lavoro tra identità visiva, editoria, illustrazione e fotografia.</div>
+        </div>
+      </section>
+      <section id="graphics" class="border-y border-[#002b2a] bg-white px-5 py-20 md:px-10 md:py-32">
+        <div class="mx-auto max-w-7xl">
+          <div class="graphics-heading grid gap-8 border-b border-[#002b2a] pb-12 md:grid-cols-2 md:items-end">
+            <div><p class="mono mb-4 text-xs uppercase tracking-widest">01 / Selected work</p><h2 class="text-5xl font-bold leading-none md:text-7xl">Grafica</h2></div>
+            <p class="max-w-md leading-relaxed md:justify-self-end">Progetti di identità, editoria, poster e illustrazione. Ogni immagine nasce dall’incontro tra ricerca e racconto.</p>
+          </div>
+          <div id="graphics-grid" class="mt-12 grid items-stretch gap-x-8 gap-y-16 md:grid-cols-2"></div>
+        </div>
+      </section>
+      <section id="photos" class="px-5 py-20 md:px-10 md:py-32">
+        <div class="mx-auto max-w-7xl">
+          <div class="photos-heading grid gap-8 border-b border-[#002b2a] pb-12 md:grid-cols-2 md:items-end">
+            <div><p class="mono mb-4 text-xs uppercase tracking-widest">02 / Visual diary</p><h2 class="text-5xl font-bold leading-none md:text-7xl">Fotografia</h2></div>
+            <p class="max-w-md leading-relaxed md:justify-self-end">Uno sguardo quotidiano su spazi, dettagli, luce e silenzio.</p>
+          </div>
+          <div id="photos-grid" class="mt-12 grid gap-8 md:grid-cols-2"></div>
+        </div>
+      </section>
+      <section id="contact" class="green px-5 py-20 text-white md:px-10 md:py-32">
+        <div class="contact-content mx-auto max-w-7xl"><p class="mono mb-8 text-xs uppercase tracking-widest text-white/60">03 / Contact</p><h2 class="text-5xl font-bold leading-none sm:text-8xl">Hai un progetto?</h2><a class="mt-12 inline-block border-b border-white pb-2 text-xl hover:text-white/60" href="mailto:hello@katerynavidloha.com">hello@katerynavidloha.com</a></div>
+      </section>
     </main>
     <footer class="green border-t border-white/30 px-5 py-5 text-xs text-white/70 md:px-10"><div class="mx-auto max-w-7xl"><p>© <span id="year"></span> Kateryna Vidloha</p></div></footer>
     <script>
       const graphicProjects = [
-        { title: 'TimeVault', text: 'Un progetto che trasforma la nostalgia degli anni ’90 in un’esperienza visiva. Oggetti e ricordi diventano frammenti di un tempo da custodire.', image: 'images/timevault.png', wide: true },
+        { title: 'TimeVault', text: 'Un progetto che trasforma la nostalgia degli anni ’90 in un’esperienza visiva. Oggetti e ricordi diventano frammenti di un tempo da custodire.', image: 'images/timevault.jpg' },
         { title: 'Petrìcor', text: 'Illustrazione ispirata all’atmosfera sospesa dopo la pioggia. Colori freddi e figure narrative costruiscono una piccola scena.', image: 'images/petricor.jpg' },
-        { title: 'Weekender Empty Set', text: 'Rebranding per un festival di musica elettronica: un’identità ad alto contrasto pensata per poster, ticket e materiali evento.', image: 'images/weekender.png' },
-        { title: 'Il ritratto di Dorian Gray', text: 'Progetto di sovracoperta per il romanzo di Oscar Wilde. L’immagine e la tipografia lavorano insieme su eleganza e mistero.', image: 'images/dorian-gray.png' },
-        { title: 'Tappeto Kashgar', text: 'Pieghevole realizzato in collaborazione con il Museo Mita. Il retro interpreta il tappeto Kashgar attraverso una composizione illustrata.', image: 'images/tappeto-kashgar.png' },
-        { title: 'Libro d’artista — Piazza della Loggia', text: 'Libro d’artista dedicato alla memoria della strage di Piazza della Loggia. Un progetto editoriale costruito con immagini e ritmo narrativo.', image: 'images/libro-artista.png', wide: true },
+        { title: 'Weekender Empty Set', text: 'Rebranding per un festival di musica elettronica: un’identità ad alto contrasto pensata per poster, ticket e materiali evento.', image: 'images/weekender-empty-set.jpg' },
+        { title: 'Il ritratto di Dorian Gray', text: 'Progetto di sovracoperta per il romanzo di Oscar Wilde. L’immagine e la tipografia lavorano insieme su eleganza e mistero.', image: 'images/dorian-gray.jpg' },
+        { title: 'Tappeto Kashgar', text: 'Pieghevole realizzato in collaborazione con il Museo Mita. Il retro interpreta il tappeto Kashgar attraverso una composizione illustrata.', image: 'images/tappeto-kashgar.jpg' },
+        { title: 'Libro d’artista — Piazza della Loggia', text: 'Libro d’artista dedicato alla memoria della strage di Piazza della Loggia. Un progetto editoriale costruito con immagini e ritmo tipografico.', image: 'images/piazza-della-loggia.jpg' },
         { title: 'Ignite the winter', text: 'Poster per una campagna invernale: lettering energico e immagine evocativa trasformano il freddo in un invito a muoversi.', image: 'images/poster.jpg' },
         { title: 'Mascotte', text: 'Studio di una mascotte declinata in più pose. Il personaggio è pensato per essere riconoscibile, espressivo e versatile.', image: 'images/mascotte.png' },
         { title: 'Weeping Dreams', text: 'Packaging e immagine coordinata per un profumo. Il progetto unisce un tono notturno, dettagli floreali e un’identità delicata.', image: 'images/weeping-dreams.png' },
@@ -63,8 +110,14 @@
       const photoProjects = [['images/photo-3263.jpg','Interno / 01'],['images/photo-3328.jpg','Luce domestica / 02'],['images/photo-3545.jpg','Neve e architettura / 03'],['images/photo-2018.jpg','Cupola / 04'],['images/photo-2119.jpg','Facciata / 05'],['images/photo-2733.jpg','Finestra / 06'],['images/photo-2856.jpg','Oggetti in stanza / 07'],['images/photo-2888.jpg','Piccole collezioni / 08'],['images/photo-2902.jpg','Scrivania / 09'],['images/photo-2997.jpg','Interno / 10'],['images/photo-3033.jpg','Città al tramonto / 11'],['images/photo-3004.jpg','Ritratto / 12']];
       const graphicsGrid = document.querySelector('#graphics-grid');
       const photosGrid = document.querySelector('#photos-grid');
-      graphicProjects.forEach((project) => { const wide = project.wide ? ' md:col-span-2' : ''; graphicsGrid.innerHTML += `<article class="graphic-card${wide}"><div class="overflow-hidden bg-[#e8e4d8]"><img src="${project.image}" alt="${project.title}" /></div><h3 class="mt-4 text-2xl font-bold">${project.title}</h3><p class="mt-2 max-w-md leading-relaxed">${project.text}</p></article>`; });
-      photoProjects.forEach((photo, index) => { const wide = index === 4 || index === 10 ? ' md:col-span-2' : ''; photosGrid.innerHTML += `<figure class="photo-card${wide} overflow-hidden bg-[#e8e4d8]"><img src="${photo[0]}" alt="${photo[1]}" /></figure>`; });
+      graphicProjects.forEach((project) => {
+        const wide = project.wide ? ' md:col-span-2' : '';
+        graphicsGrid.innerHTML += `<article class="graphic-card${wide}"><div class="media-frame"><img src="${project.image}" alt="${project.title}" /></div><div class="card-copy"><h3 class="mt-5 text-2xl font-bold">${project.title}</h3><p class="mt-2 leading-relaxed">${project.text}</p></div></article>`;
+      });
+      photoProjects.forEach((photo, index) => {
+        const wide = index === 4 || index === 10 ? ' md:col-span-2' : '';
+        photosGrid.innerHTML += `<figure class="photo-card${wide}"><div class="media-frame"><img src="${photo[0]}" alt="${photo[1]}" loading="lazy" /></div><figcaption class="mono mt-3 text-xs uppercase tracking-widest">${photo[1]}</figcaption></figure>`;
+      });
       gsap.registerPlugin(ScrollTrigger);
       gsap.from('.hero-title', { y: 80, opacity: 0, duration: 1, ease: 'power2.out' });
       gsap.from('.about-copy', { y: 60, opacity: 0, scrollTrigger: { trigger: '#about', start: 'top 75%' } });
