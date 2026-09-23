@@ -21,7 +21,7 @@
       .graphic-card:hover img, .photo-card:hover img { transform: scale(1.04); filter: grayscale(0); }
     </style>
   </head>
-  
+
   <body class="cream">
     <header class="sticky top-0 z-50 border-b border-[#002b2a] bg-[#f5f2e9] px-5 py-4 md:px-10">
       <div class="mx-auto flex max-w-7xl items-center justify-between">
@@ -81,7 +81,7 @@
     </main>
     <footer class="green border-t border-white/30 px-5 py-5 text-xs text-white/70 md:px-10"><div class="mx-auto max-w-7xl"><p>© <span id="year"></span> Kateryna Vidloha</p></div></footer>
     <script>
-      // Ogni oggetto contiene immagine, titolo e testo di un progetto reale.
+
       const graphicProjects = [
         { title: 'TimeVault', text: 'Un progetto che trasforma la nostalgia degli anni ’90 in un’esperienza visiva. Oggetti e ricordi diventano frammenti di un tempo da custodire.', image: 'images/timevault.png', wide: true },
         { title: 'Petrìcor', text: 'Illustrazione ispirata all’atmosfera sospesa dopo la pioggia. Colori freddi e figure narrative costruiscono una piccola scena.', image: 'images/petricor.jpg' },
@@ -106,7 +106,7 @@
         const wide = index === 4 || index === 10 ? ' md:col-span-2' : '';
         photosGrid.innerHTML += `<figure class="photo-card${wide} overflow-hidden"><img class="h-[420px] w-full object-cover md:h-[560px]" src="${photo[0]}" alt="${photo[1]}" /></figure>`;
       });
-      // Animazioni semplici: entrata del titolo e delle sezioni quando scorri.
+
       gsap.registerPlugin(ScrollTrigger);
       gsap.from('.hero-title', { y: 80, opacity: 0, duration: 1, ease: 'power2.out' });
       gsap.from('.about-copy', { y: 60, opacity: 0, scrollTrigger: { trigger: '#about', start: 'top 75%' } });
