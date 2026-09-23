@@ -21,23 +21,26 @@
       .graphic-card:hover img, .photo-card:hover img { transform: scale(1.04); filter: grayscale(0); }
     </style>
   </head>
+  
   <body class="cream">
     <header class="sticky top-0 z-50 border-b border-[#002b2a] bg-[#f5f2e9] px-5 py-4 md:px-10">
       <div class="mx-auto flex max-w-7xl items-center justify-between">
-        <!-- Quando hai il logo, sostituisci KV con <img src="images/logo.png" alt="Kateryna Vidloha"> -->
+        
         <a href="#home" class="mono text-xl font-bold">KV</a>
         <nav class="flex gap-4 text-xs uppercase tracking-widest md:gap-7">
           <a href="#about" class="hover:underline">About</a><a href="#graphics" class="hover:underline">Grafica</a><a href="#photos" class="hover:underline">Fotografia</a><a href="#contact" class="hover:underline">Contact</a>
         </nav>
       </div>
+      
     </header>
     <main>
       <section id="home" class="green min-h-screen px-5 py-16 text-white md:px-10 md:py-24">
         <div class="mx-auto flex min-h-[70vh] max-w-7xl flex-col justify-center">
           <h1 class="hero-title max-w-5xl text-6xl font-bold leading-[0.85] tracking-tight sm:text-8xl lg:text-9xl">Kateryna<br />Vidloha.</h1>
-          <p class="mt-8 max-w-sm text-lg leading-relaxed text-white/80">Graphic design, fotografia e ricerca visiva.</p>
+          <p class="mt-8 max-w-sm text-lg leading-relaxed text-white/80">Graphic design, fotografia. </p>
           <a href="#graphics" class="mt-10 w-fit border border-white px-5 py-3 text-sm hover:bg-white hover:text-[#002b2a]">Esplora i progetti ↓</a>
         </div>
+        
       </section>
       <section id="about" class="px-5 py-20 md:px-10 md:py-32">
         <div class="mx-auto grid max-w-7xl gap-12 md:grid-cols-[1fr_1.5fr]">
@@ -50,15 +53,17 @@
             </div>
           </div>
         </div>
+        
       </section>
       <section id="graphics" class="border-y border-[#002b2a] bg-white px-5 py-20 md:px-10 md:py-32">
         <div class="mx-auto max-w-7xl">
           <div class="graphics-heading grid gap-8 md:grid-cols-2 md:items-end">
             <div><h2 class="text-5xl font-bold leading-none sm:text-7xl">Progetti<br />di grafica.</h2></div>
-            <p class="max-w-md leading-relaxed">Una raccolta di layout, poster, identità visive e sperimentazioni. Titoli e descrizioni sono provvisori finché non mi mandi i tuoi lavori.</p>
+            <p class="max-w-md leading-relaxed">Una raccolta di layout, poster, identità visive e sperimentazioni.</p>
           </div>
           <div id="graphics-grid" class="mt-12 grid grid-cols-1 gap-x-5 gap-y-12 md:grid-cols-2 lg:grid-cols-3"></div>
         </div>
+        
       </section>
       <section id="photos" class="px-5 py-20 md:px-10 md:py-32">
         <div class="mx-auto max-w-7xl">
@@ -68,6 +73,7 @@
           </div>
           <div id="photos-grid" class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2"></div>
         </div>
+        
       </section>
       <section id="contact" class="green px-5 py-20 text-white md:px-10 md:py-32">
         <div class="contact-content mx-auto max-w-7xl"><h2 class="text-5xl font-bold leading-none sm:text-8xl">Hai un progetto<br />in mente?</h2><div class="mt-10 flex flex-col items-start gap-4 text-xl"><a class="border-b border-white pb-2 hover:text-white/70" href="mailto:vidloha.k@gmail.com">vidloha.k@gmail.com ↗</a><a class="border-b border-white pb-2 hover:text-white/70" href="tel:+393202633157">+39 320 2633157</a></div><div class="mt-16 flex gap-6 text-sm"><a href="https://www.instagram.com/vdlkry/" target="_blank" rel="noreferrer" class="underline">Instagram @vdlkry ↗</a><a href="#home" class="underline">Torna su ↑</a></div></div>
@@ -89,14 +95,7 @@
         { title: 'Doomsday Clock', text: 'Rebranding e sviluppo del nuovo logo per Doomsday Clock. Il sistema visivo punta su essenzialità, impatto e riconoscibilità.', image: 'images/doomsday-clock.png' },
         { title: 'Modellazione 3D', text: 'Scena tridimensionale costruita lavorando su modellazione, texture e luce. Un esercizio di atmosfera e composizione digitale.', image: 'images/modellazione-3d.jpg', wide: true }
       ];
-      const photoProjects = [
-        ['images/photo-3263.jpg', 'Interno / 01'], ['images/photo-3328.jpg', 'Luce domestica / 02'],
-        ['images/photo-3545.jpg', 'Neve e architettura / 03'], ['images/photo-2018.jpg', 'Cupola / 04'],
-        ['images/photo-2119.jpg', 'Facciata / 05'], ['images/photo-2733.jpg', 'Finestra / 06'],
-        ['images/photo-2856.jpg', 'Oggetti in stanza / 07'], ['images/photo-2888.jpg', 'Piccole collezioni / 08'],
-        ['images/photo-2902.jpg', 'Scrivania / 09'], ['images/photo-2997.jpg', 'Interno / 10'],
-        ['images/photo-3033.jpg', 'Città al tramonto / 11'], ['images/photo-3004.jpg', 'Ritratto / 12']
-      ];
+
       const graphicsGrid = document.querySelector('#graphics-grid');
       const photosGrid = document.querySelector('#photos-grid');
       graphicProjects.forEach((project, index) => {
